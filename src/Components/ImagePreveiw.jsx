@@ -1,4 +1,4 @@
-const ImagePreveiw = () => {
+const ImagePreveiw = ({ isLoading, uploadedImage, enhancedImage }) => {
   return (
     <div className="mt-8 grid grid-col-1 md:grid-cols-2 gap-4 w-1/2  max-w-4xl">
       {/* Orignal Image */}
@@ -9,10 +9,17 @@ const ImagePreveiw = () => {
         >
           Orignal Image
         </h2>
-        {/* <img src="" className="w-full h-full object-cover" alt="" /> */}
-        <div className="flex items-center justify-center h-80 bg-gray-200">
-          No Image Selected
-        </div>
+        {uploadedImage ? (
+          <img
+            src={uploadedImage}
+            className="w-full h-full mx-h-full object-cover"
+            alt=""
+          />
+        ) : (
+          <div className="flex items-center justify-center h-80 bg-gray-200">
+            No Image Selected
+          </div>
+        )}
       </div>
       {/* Enhanced Image */}
       <div className="bg-white shadow-lg rounded-xl overflow-hidden">
@@ -22,10 +29,17 @@ const ImagePreveiw = () => {
         >
           Enhanced Image
         </h2>
-        {/* <img src="" className="w-full h-full object-cover" alt="" /> */}
-        <div className="flex items-center justify-center h-80 bg-gray-200">
-          No Enhanced Image
-        </div>
+        {enhancedImage ? (
+          <img
+            src={enhancedImage}
+            className="w-full h-full object-contain"
+            alt=""
+          />
+        ) : (
+          <div className="flex items-center justify-center h-80 bg-gray-200">
+            No Enhanced Image
+          </div>
+        )}
       </div>
     </div>
   );
