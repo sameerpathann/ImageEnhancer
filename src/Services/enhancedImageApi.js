@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = "wxv3e491ryrw70e6c";
+const API_KEY = "wxufkswxqtjm7nb52";
 const BASE_URL = "https://techhk.aoscdn.com";
 
 export const enhancedImageAPI = async (file) => {
@@ -66,7 +66,6 @@ const getEnhancedImage = async (taskId) => {
 const pollForEnhancedImage = async (taskId, retries = 0) => {
   const result = await getEnhancedImage(taskId);
   if (result.state === 4) {
-    console.log("processing....");
     if (retries >= 20) {
       throw new Error("Max retries reached. please try again later.");
     }
